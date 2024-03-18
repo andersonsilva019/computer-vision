@@ -54,11 +54,13 @@ new_img = cv2.merge([new_h, new_s, new_v])
 new_img = cv2.cvtColor(new_img, cv2.COLOR_HSV2BGR)
 
 # show the image
-cv2.imshow(title_window, new_img)
+plt.subplot(1, 2, 1), plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.title('Original image')
+plt.subplot(1, 2, 2), plt.imshow(cv2.cvtColor(new_img, cv2.COLOR_BGR2RGB))
+plt.title('Swapped colors image')
 
-cv2.waitKey(0)
+plt.show()
 
-cv2.destroyAllWindows()
 
 
 
