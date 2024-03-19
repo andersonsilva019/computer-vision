@@ -33,8 +33,11 @@ mask = maskGreen(img_in_hsv) + maskBlue(img_in_hsv)
 # apply the mask
 new_img = cv2.bitwise_and(img, img, mask=mask)
 
+# add the original image with the new image
+dist_img = cv2.add(img, new_img)
+
 # convert to HSV
-new_img_in_hsv = cv2.cvtColor(new_img, cv2.COLOR_BGR2HSV)
+new_img_in_hsv = cv2.cvtColor(dist_img, cv2.COLOR_BGR2HSV)
 
 # split the channels
 new_h, new_s, new_v = cv2.split(new_img_in_hsv)
@@ -45,7 +48,7 @@ for i, row in enumerate(new_h):
     if isGreenInHSV(pixel):
       new_h.itemset(i, j, 120)
     elif isBlueHsv(pixel):
-      new_h.itemset(i, j, 50)
+      new_h.itemset(i, j, 45)
 
 # merge the channels
 new_img = cv2.merge([new_h, new_s, new_v])
