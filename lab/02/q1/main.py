@@ -56,6 +56,10 @@ def main():
   plt.subplot(2, 2, 4), plt.imshow(cv.cvtColor(gamma_correction_with_lut(img, 4), cv.COLOR_BGR2RGB))
   plt.title('Gamma = 4')
 
+  cv.imwrite('q1/images/gamma_2_correction.jpg', gamma_correction_with_lut(img, 2))
+  cv.imwrite('q1/images/gamma_3_correction.jpg', gamma_correction_with_lut(img, 3))
+  cv.imwrite('q1/images/gamma_4_correction.jpg', gamma_correction_with_lut(img, 4))
+
   plt.show()
 
 main()
