@@ -62,6 +62,8 @@ plt.title('Original image')
 plt.subplot(1, 2, 2), plt.imshow(cv2.cvtColor(new_img, cv2.COLOR_BGR2RGB))
 plt.title('Swapped colors image')
 
+cv2.imwrite("output.jpg", new_img)
+
 plt.show()
 
 
